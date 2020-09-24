@@ -1,3 +1,7 @@
+# Getting Started
+
+You can follow the official dart getting started guide [here](https://dart.dev/tutorials/server/get-started).
+
 Here are some of the ways you can contribute to `fart`.
 
 
@@ -15,7 +19,7 @@ Here are some of the ways you can contribute to `fart`.
 
 - One assertion allowed per unit test.
 
-- You can try to use the [Arrange/Act/Assert](http://wiki.c2.com/?ArrangeActAssert) paradigm for your unit tests.
+- You can try to use the [Arrange/Act/Assert](http://wiki.c2.com/?ArrangeActAssert) paradigm for your unit tests (this is not a rule but it will make me happy).
 
 ### PR Rules
 
