@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library fart;
 
-export 'src/Where.dart';
+export 'src/extension/Where.dart';
+export 'src/Fart.dart';
 
 // TODO: Export any libraries intended for clients of this package.
