@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library fart;
 
+export 'src/extension/Reverse.dart';
 export 'src/extension/Where.dart';
 export 'src/extension/Max.dart';
 export 'src/Fart.dart';
