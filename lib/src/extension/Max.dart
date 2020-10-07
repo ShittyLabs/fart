@@ -1,6 +1,6 @@
 extension MaxFart<T> on Iterable<T> {
   T Max() {
-  var max =  (iterable?.isEmpty ?? true) ? null : iterable.first;
+  var max =  (this?.isEmpty ?? true) ? null : this.first;
     for (final item in this) {
       if (item > max) {
           max = item;

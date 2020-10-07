@@ -12,7 +12,7 @@ void main() {
       final actual = numbersOneThroughFour.Max();
 
       // assert
-      assert(actual == 4));
+      assert(actual == 4);
     });
   });
 }
