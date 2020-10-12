@@ -1,5 +1,3 @@
-import 'dart:io';
-
 extension AggregateFart<TSource> on Iterable<TSource> {
   TResult Aggregate<TAccumulate, TResult>(
       TAccumulate Function(TAccumulate, TSource) func,
