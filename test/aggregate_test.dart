@@ -5,7 +5,7 @@ import 'package:fart/fart.dart';
 
 void main() {
   group('Aggregate', () {
-    group('Success Scenerios', () {
+    group('Success Scenarios', () {
       test('should count the number of even integers in the list', () {
         // arrange
         final ints = [4, 8, 8, 3, 9, 0, 7, 8, 2];
@@ -47,7 +47,7 @@ void main() {
       });
     });
 
-    group('Error Scenerios', () {
+    group('Error Scenarios', () {
       test('should throw an `ArgumentNullException` if the `source` is `null`',
           () {
         // arrange
@@ -73,7 +73,7 @@ void main() {
   });
 
   group('Aggregate2', () {
-    group('Success Scenerios', () {
+    group('Success Scenarios', () {
       test('should find and return the longest fruit name as uppercased', () {
         // arrange
         final fruits = ['apple', 'mango', 'orange', 'passionfruit', 'grape'];
@@ -119,7 +119,7 @@ void main() {
       });
     });
 
-    group('Error Scenerios', () {
+    group('Error Scenarios', () {
       test('should throw an `ArgumentNullException` if the `source` is `null`',
           () {
         // arrange
@@ -157,7 +157,7 @@ void main() {
   });
 
   group('Aggregate1', () {
-    group('Success Scenerios', () {
+    group('Success Scenarios', () {
       test('should reverse the sentence word order', () {
         // arrange
         final sentence = 'the quick brown fox jumps over the lazy dog';
@@ -186,7 +186,7 @@ void main() {
       });
     });
 
-    group('Error Scenerios', () {
+    group('Error Scenarios', () {
       test('should throw an `ArgumentNullException` if the `source` is `null`',
           () {
         // arrange
