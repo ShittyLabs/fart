@@ -1,20 +1,43 @@
-extension AggregateFart<TSource> on Iterable<TSource> {
-  TResult Aggregate<TAccumulate, TResult>(
-      TAccumulate Function(TAccumulate, TSource) func,
-      {TAccumulate seed,
-      TResult Function(TAccumulate) resultSelector}) {
-    resultSelector ??= (id) => id as TResult;
+import 'package:fart/src/exception/ArgumentNullException.dart';
+import 'package:fart/src/exception/InvalidOperationException.dart';
 
-    var iterable = this;
-    if (seed == null) {
-      seed = first as TAccumulate;
-      iterable = skip(1);
+extension AggregateFart<TSource> on Iterable<TSource> {
+  TAccumulate Aggregate<TAccumulate>(
+          TAccumulate seed, TAccumulate Function(TAccumulate, TSource) func) =>
+      Aggregate2<TAccumulate, TAccumulate>(seed, func, (result) => result);
+
+  TResult Aggregate2<TAccumulate, TResult>(
+      TAccumulate seed,
+      TAccumulate Function(TAccumulate, TSource) func,
+      TResult Function(TAccumulate) resultSelector) {
+    if (this == null) {
+      throw ArgumentNullException('`source` cannot be `null`');
     }
 
-    for (final element in iterable) {
+    if (func == null) {
+      throw ArgumentNullException('`func` cannot be `null`');
+    }
+
+    if (resultSelector == null) {
+      throw ArgumentNullException('`resultSelector` cannot be `null`');
+    }
+
+    for (final element in this) {
       seed = func(seed, element);
     }
 
     return resultSelector(seed);
+  }
+
+  TSource Aggregate1(TSource Function(TSource, TSource) func) {
+    if (this == null) {
+      throw ArgumentNullException('`source` cannot be `null`');
+    }
+
+    if (isEmpty) {
+      throw InvalidOperationException('`souce` cannot be empty');
+    }
+
+    return skip(1).Aggregate(first, func);
   }
 }
