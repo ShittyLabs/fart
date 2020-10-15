@@ -1,4 +1,6 @@
+import 'package:fart/fart.dart';
 import 'package:fart/src/exception/ArgumentNullException.dart';
+import 'package:fart/src/utility/Tuple.dart';
 
 extension WhereFart<T> on Iterable<T> {
   Iterable<T> Where(bool Function(T t) test) {
@@ -18,15 +20,17 @@ extension WhereFart<T> on Iterable<T> {
       throw ArgumentNullException('`predicate` cannot be `null`');
     }
 
-    var matches = Iterable<T>.empty();
-    var index = 0;
-    for (final t in this) {
-      if (test(t, index)) {
-        matches = [...matches, t];
-      }
+    final seed = Tuple(Iterable<T>.empty(), 0);
+    final filter = (Tuple<Iterable<T>, int> matchesAndIndex, T next) {
+      final matches = matchesAndIndex.item1;
+      final index = matchesAndIndex.item2;
 
-      index++;
-    }
-    return matches;
+      return test(next, index)
+          ? Tuple([...matches, next], index + 1)
+          : Tuple(matches, index + 1);
+    };
+    final justMatches = (Tuple<Iterable<T>, int> tuple) => tuple.item1;
+
+    return Aggregate2(seed, filter, justMatches);
   }
 }
