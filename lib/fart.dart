@@ -3,6 +3,7 @@
 /// More dartdocs go here.
 library fart;
 
+export 'src/extension/Any.dart';
 export 'src/extension/Aggregate.dart';
 export 'src/extension/Reverse.dart';
 export 'src/extension/Where.dart';
