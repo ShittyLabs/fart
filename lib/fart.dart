@@ -4,6 +4,8 @@
 library fart;
 
 export 'src/extension/Aggregate.dart';
+export 'src/extension/All.dart';
+export 'src/extension/Any.dart';
 export 'src/extension/Count.dart';
 export 'src/extension/Max.dart';
 export 'src/extension/Reverse.dart';
